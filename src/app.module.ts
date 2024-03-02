@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CacheModule } from '@nestjs/cache-manager';
 import { DbService } from './db/db.service';
+import { TestCqrsController } from './test-cqrs/test-cqrs.controller';
 import * as redisStore from 'cache-manager-redis-store';
 
 @Module({
@@ -13,7 +14,7 @@ import * as redisStore from 'cache-manager-redis-store';
       port: 6379,
     }),
   ],
-  controllers: [AppController],
+  controllers: [AppController, TestCqrsController],
   providers: [AppService, DbService],
 })
 export class AppModule {}
